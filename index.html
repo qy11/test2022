@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  var arr = ['a', 'b', 'a', 'c', 'b']
+
+  // function unique(arr) {
+  //   let obj = {},
+  //     newArr = [];
+  //   arr.forEach(item => {
+  //     if (!obj[item]) {
+  //       obj[item] = true;
+  //       newArr.push(item)
+  //     }
+  //   })
+  //   return newArr
+  // }
+  // console.log(unique(arr))
+
+  const arr1 = [{
+    id: 1,
+    name: 'a',
+    birth: 896630400000
+  },
+  {
+    id: 2,
+    name: 'b',
+    birth: 725817600000
+  },
+  {
+    id: 2,
+    name: 'c',
+    birth: 725817600003
+  },
+  {
+    id: 1,
+    name: 'd',
+    birth: 725817600003
+  }
+  ]
+
+  // function uniqueId(arr) {
+  //   let obj = {};
+  //   return arr.reduce((prev, cur, index) => {
+  //     if (!obj[cur.id]) {
+  //       obj[cur.id] = true;
+  //       prev.push(cur)
+  //     } else {
+  //       prev.splice(prev.length - index, 1)
+  //       prev.push(cur)
+  //     }
+  //     return prev
+  //   }, [])
+  // }
+  // console.log(uniqueId(arr1))
+  // console.log("---")
+
+  // let n = new Date(),
+  //   t = n.getTime(),
+  //   y = n.getFullYear(),
+  //   m = n.getMonth() + 1,
+  //   d = n.getDate()
+  // console.log(n)
+  // console.log(t)
+  // console.log(y, m, d)
+  function Person(name) {
+    this.name = name
+  }
+  // Person类是一个Function类的实例 true
+  // Person继承自Function
+  // console.log(Person instanceof Function)
+
+
+
+  // var a = 1;
+  // a = 1;
+  // window.a = 1;
+
+
+  // console.log(a)
+  // console.log(window)
+
+
+
+
+</script>
+
+</html>

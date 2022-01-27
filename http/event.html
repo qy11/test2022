@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+   * setTimeout 同步会执行 开启异步执行定时器，挂起web API，时间到了放到callback queue事件队列中，
+  */
+  setTimeout(() => {
+    console.log(1)
+    Promise.resolve().then(() => {
+      console.log(2)
+    })
+  })
+  Promise.resolve().then(() => {
+    console.log(3)
+    setTimeout(() => {
+      console.log(4)
+    })
+  })
+  /** 3124*/
+</script>
+
+</html>

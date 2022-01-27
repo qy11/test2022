@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // var a = 0;
+  // console.log('No.1', a); // 0
+  // {
+  //   // function a()局部提升
+  //   console.log('No.2', a); // function a
+  //   a = 1;
+  //   console.log('No.3', a); // 1
+  //   function a() { } // 
+  //   console.log('No.4', a); // 1
+  //   a = 2;
+  //   console.log('No.5', a); // 2 
+  // }
+  // console.log('No.6', a); // 1 
+
+  /**
+   * 执行到块级作用域时，function a()局部提升，
+   * global: a  ->  1   栈
+   * f : a -> function  堆
+   * 内存混乱 
+   *   -把堆内存的a同步给栈内存的a,值为1
+   * No.5 访问是堆内存 2
+   * No.6 访问是栈内存 1
+  */
+  // var obj = {}
+  // console.log(obj)
+
+  // var obj1 = Object.create(null),
+  //   obj2 = Object.create(obj1);
+  // obj1.a = 1;
+  // obj2.b = 2;
+  // console.log(obj1)
+  // console.log(obj2)
+  // console.log(obj1.__proto__)
+  // console.log(obj2.__proto__)
+  // console.log(obj1.a)
+  // console.log(obj2.a)
+  // console.log(obj2.b)
+  // console.log(Object.getPrototypeOf(obj1))
+  // console.log(Object.getPrototypeOf(obj2))
+
+  /**
+   * 使用 Object.create(null) 原型链被割裂，所以无法通过__proto__ 访问原型链， 但是继承关系依然存在
+  */
+
+  // function test(key) {
+  //   switch (key) {
+  //     case 1:
+  //       return 1;
+  //     case 2:
+  //       return 2
+  //     default:
+  //       return 3
+  //   }
+  // }
+  // console.log(test(1))
+
+
+  var a = 123;
+  function a() { }
+  console.log(a) // 123
+  a() // TypeError a is not a function
+  /**
+   * 预编译，
+   *    -函数声明变量提升
+   *    -变量声明提升
+   *    -变量声明覆盖了函数声明 a为123，而不是函数
+  */
+</script>
+
+</html>

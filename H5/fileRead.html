@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="file" name="" id="fileIpt">
+  <button>click</button>
+</body>
+<script>
+  var fileIpt = document.getElementById('fileIpt');
+  fileIpt.addEventListener('change', changeIpt, false)
+  function changeIpt(e) {
+    // console.log(fileIpt.files)
+    const files = fileIpt.files
+    // let reader = new FileReader()
+    // reader.onload = () => {
+    //   console.log(reader.result) // 文本内容
+    // }
+    // reader.readAsText(fileIpt.files[0])
+
+    //读取图片
+    let reader = new FileReader()
+    reader.onload = () => {
+      var img = new Image()
+      img.onload = function () {
+        var canvas = document.createElement('canvas'),
+          ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0)
+        var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height),
+          data = imgData.data
+        console.log(imgData)
+        for (let i = 0; i <= data.length; i += 4) {
+          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg;
+          data[i + 1] = avg;
+          data[i + 2] = avg;
+        }
+        ctx.putImageData(imgData, 0, 0)
+        document.body.appendChild(canvas)
+      }
+      img.src = reader.result;
+      // document.body.appendChild(img)
+    }
+    reader.readAsDataURL(files[0])
+  }
+</script>
+
+</html>

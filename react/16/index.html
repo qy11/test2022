@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+   * ### React, Redux, Antd
+React project: random cards, antd Modal, redux
+* show a deck of 5 cards with number 1, 2, 3, 4, 5 respectively on each card, in a main view
+* make a Shuffle button so that clicking it would shuffle the cards
+* click each card to display a Modal (antd Modal) showing the card's number, with a [+] button to increase the numnber; when the Modal is closed, the number on the main view has also been refreshed. 
+
+Bonus:
+1) use React hook
+2) use Typescript
+3) Not using the approach by passing functions across components, use redux. 
+
+Hint:
+Store the cards' state in a Provider store; both main view and Modal view subscribe the cards' state from store; [+] button clicking will dispatch an action for the reducer to update the cards' state in store. 
+  */
+
+
+  const index = () => {
+
+    const [arr, setArr] = React.useState([1, 2, 3, 4, 5])
+
+    const handleRandom = () => {
+      const newArr = arr.sort(() => Marh.random() - 0.5)
+      console.log(newArr);
+    }
+    return <div>
+      <button onClick={handleRandom}>洗牌</button>
+    </div>;
+  };
+
+  export default index;
+
+</script>
+
+</html>

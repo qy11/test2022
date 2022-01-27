@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // function test(a, b, length) {
+  //   console.log(arguments)
+  //   test.length += length
+  //   a = 100;
+  //   b = 200
+  //   console.log(test.length) //3
+  //   delete arguments.length;
+  //   arguments.push = [].push;
+  //   arguments.push(4); // length -> 1  + 3 为 4 
+  //   arguments.length += length;
+  //   console.log(arguments.length) // 4
+  //   console.log(arguments) // [4,200,3]
+  // }
+  // const des = Object.getOwnPropertyDescriptors(test)
+  // console.log(des) // write: false 不可写，不能更改
+  // test(1, 2, 3)
+  // console.log(test.length) //3
+
+  /**
+   * 无序列表 Object
+   * 有序列表 Array
+   *
+   * 有序和无序有没有必要在一起使用，能不能在一起
+   * 有无序结合数据 order and none-order data structure
+   * 
+   * Array Like 类数组 ： 本质是对象，对象中带有有序性的数据结构
+   *
+   * 从0开始，自然递增的整数做键名,正确的length 才是 => 类数组
+  */
+
+  // var obj = {
+  //   0: 1,
+  //   1: 2,
+  //   2: 3,
+  //   3: 4,
+  //   length: 4,
+  //   push: Array.prototype.push
+  // }
+  // const oo = obj.push(4)
+  // console.log(obj)
+  // console.log(oo)
+
+  /**
+  * 不是类数组的时候，只看length
+ */
+  // var obj = {
+  //   length: 10,
+  //   push: [].push
+  // }
+  // obj.push(20)
+  // console.log(obj) // {10:20,length:11}
+
+
+  /**
+   * 箭头函数为什么不能new
+   * 没有[[constructor]] 插槽里面
+   * 什么事箭头函数？
+   *    -普通函数this指向 不明确 (this在执行的时候才能确定)
+   *    -为了稳定this指向，一定和外部函数保持统一
+   *
+   * new的过程
+   *    -执行过程不一样
+   *    -创建 {} this指向对象  return this 隐式
+  */
+  // 'use strict'
+  // const test = () => {
+  //   console.log(this) // window
+  // }
+  // function test1() {
+  //   console.log(this) //严格模式 undefined 非严格为window
+  // }
+  // test()
+  // test1()
+
+  /**
+   * build-in 
+   * 
+   * entry en in 
+   * 
+   * internal 
+  */
+
+  // Object.prototype.a = 1 //赋值原始值也没有意义
+  // Object.prototype.__proto__ = {  // 报错 增加继承关系，不被允许的，不能无限的往上走
+  //   a: 1
+  // }
+  // var obj = {}
+  // console.log(obj.a)
+
+
+  // function Test() { }
+  // var obj = new Test()
+  // console.log(obj.constructor === Test)
+  /**
+   * 原型与原型链的继承  
+   * obj: {
+   *    a: 1,
+   *    __proto__: Test Prototype{
+   *        b: 2,
+   *        __proto__: Object Prototype{ 终点 Object.prototype
+   *             c: 3,
+   *            __proto__: null // 没有意义  // JS中 一个对象引用一定有proto属性
+   *        }
+   *    }
+   * }
+  */
+  //  console.log({})
+
+  // var obj = {}
+  // Object.defineProperty(obj, 'a', {
+  //   get() {
+  //     console.log(123)
+
+  //   },
+  //   set(val) {
+  //     console.log(345)
+  //     console.log(val)
+
+  //   }
+  // })
+  // // console.log(obj.a)
+  // console.log(obj)
+  // obj.a = 9
+
+</script>
+
+</html>

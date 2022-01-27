@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css"
+    type="text/css">
+  <style>
+    .map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
+  <title>OpenLayers example</title>
+</head>
+
+<body>
+  <h2>My Map</h2>
+  <div id="map" class="map"></div>
+  <script type="text/javascript">
+    // var map = new ol.Map({
+    //   target: 'map',
+    //   layers: [
+    //     new ol.layer.Tile({
+    //       source: new ol.source.OSM()
+    //     })
+    //   ],
+    //   view: new ol.View({
+    //     center: ol.proj.fromLonLat([82.41, 32.82]),
+    //     zoom: 4
+    //   })
+    // });
+
+
+    // class Person {
+    //   constructor(name = 'tom') {
+    //     this.name = name
+    //   }
+    //   say() {
+    //     return 'say'
+    //   }
+    //   static smoke() {
+    //     return 'smoke'
+    //   }
+    // }
+    // 派生类
+    // class Child extends Person {
+    //   constructor(name, age = '19') {
+    //     super(name)
+    //     this.age = age
+    //   }
+    // }
+    // const child = new Child()
+    // console.log(child) //
+    // console.log(child.say()) //say
+    // console.log(child.name) //say
+    // console.log(child.age) //say
+
+    class Person {
+      static doSay() {
+        this.say()
+      }
+      static say() {
+        console.log('hello')
+      }
+    }
+    Person.doSay() // hello
+  </script>
+</body>
+
+</html>

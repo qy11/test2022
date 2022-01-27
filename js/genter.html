@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // const arr = [1, 2, 'c', 4, 5]
+  // const it = arr.entries()
+  // console.log(it) // Array Iterator
+  // console.log(it.next()) //
+  // console.log(it.next()) //
+  // console.log(it.next()) //
+  // for (let v of it) {
+  // console.log(v)
+  // const [idx, item] = v
+  // console.log(idx, item)
+  // }
+
+  // var fetch = require('node-fetch');
+
+  // function* gen() {
+  //   var url = 'https://api.github.com/users/github';
+  //   var result = yield fetch(url);
+  //   console.log(result.bio);
+  // }
+  // function* genFn(x) {
+  //   var y = yield x + 1;
+  //   var y = yield x + 3;
+  //   return y;
+  // }
+  // var g = genFn(1);
+  // console.log(g.next())
+  // console.log(g.next())
+  // console.log(g.next(1))
+  // g.next() // { value: 2, done: false }
+  // g.next() // { value: undefined, done: true }
+
+  // function* main() {
+  //   let x = yield "starting";
+  //   let y = yield (x * 2);
+
+  //   console.log(x, y);
+  //   return x + y;
+  // }
+
+  // let it = main();
+
+  // let res = it.next(); // 第一个next()用于启动生成器
+  // console.log(res.value);  // 输出"starting" （yield语句后跟的值传给了next()的对象）
+  // res = it.next(5);
+  // console.log(res) // {value: 10, done: false}
+  // res = it.next(20); // 5 20
+  // console.log(res) //{value: 25, done: true}
+
+  // function* a() {
+  //   console.log('a start');
+  //   yield 2;
+  //   console.log('a end');
+  // }
+  // function* b() {
+  //   console.log('b start');
+  //   yield 1;
+  //   yield* a(); // 将a委托给b
+  //   yield 3;
+  //   console.log('b end');
+  // }
+
+  // let it = b();
+
+  // let res = it.next().value;    // b start
+  // console.log(res) //1
+  // res = it.next().value;    // a start
+  // console.log(res) //2
+  // res = it.next().value;    // a end
+  // console.log(res) //3
+  // res = res = it.next().value;    // b end
+  // console.log(res) // undefined
+
+  function fn(num) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(num)
+      }, 1000)
+    })
+  }
+  function* gen() {
+    yield fn(1)
+    yield fn(2)
+    return 3
+  }
+  const g = gen()
+  const p = g.next()
+
+  p.value.then(res => {
+    console.log('res', res)
+  })
+
+
+  // console.log(g.next()) // { value: Promise { <pending> }, done: false }
+  // console.log(g.next()) // { value: Promise { <pending> }, done: false }
+  // console.log(g.next()) // { value: 3, done: true }
+
+
+
+</script>
+
+</html>

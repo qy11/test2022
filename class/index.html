@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  class Person {
+    constructor(name = 'tom') {
+      this.name = name
+    }
+    say() {
+      return 'say'
+    }
+    static smoke() {
+      return 'smoke'
+    }
+  }
+  // 派生类
+  class Child extends Person {
+    constructor(name, age = '19') {
+      super(name)
+      this.age = age
+    }
+  }
+  const child = new Child()
+  console.log(child) //
+  console.log(child.say()) //say
+  console.log(child.name) //tom
+</script>
+
+</html>

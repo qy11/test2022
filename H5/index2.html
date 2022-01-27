@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // const str = "#login"
+  // const s = str.substring(1, 2)
+  // console.log(str, s)
+  /**
+   * hashchange : 当URL的片段标识符更改时，将触发hashchange事件 (跟在＃符号后面的URL部分，包括＃符号)
+   * hash  即URL中"#"字符后面的部分。
+　　    -使用浏览器访问网页时，如果网页URL中带有hash，页面就会定位到id（或name）与hash值一样的元素的位置；
+　　    -hash还有另一个特点，它的改变不会导致页面重新加载；
+　　    -hash值浏览器是不会随请求发送到服务器端的；
+　　    -通过window.location.hash属性获取和设置hash值。
+  */
+  window.addEventListener('hashchange', function (e) {
+    console.log(e)
+  })
+</script>
+
+</html>

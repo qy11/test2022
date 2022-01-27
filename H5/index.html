@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+  * cookies 可保存到浏览器和服务器上，可设置过期时间，身份证明
+  * localStorage 不会过期,可手动删除
+  * sessionStorage 关闭即过期
+  *
+  * http协议 无状态
+  * 
+  */
+  const cookieS = "Baidu=123;jd=456;ali=789";
+  const cookieArr = cookieS.split(';');
+  // console.log(cookieArr)
+  const b = "Baidu"
+  const c = cookieArr.reduce((prev, item) => {
+    const s = item.split("=");
+    if(s[0] === b){
+      console.log(s[1])
+      prev[s[0]] = s[1]
+    }
+    return prev
+  }, {})
+  console.log(c)
+</script>
+
+</html>

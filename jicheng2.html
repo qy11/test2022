@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+   * class 和 构造函数区别
+   *   -1.class 不能提升
+   *   -2，class 只能通过new实例
+   *   -3，class 严格模式
+   *   -4.class原型上属性不能遍历
+   *   -5.
+  */
+
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age
+      this.say = function () {
+        console.log('say')
+      }
+    }
+    say() {
+      console.log('hello')
+    }
+    sayHi() {
+      console.log('hello sayHi')
+    }
+    static eat() {
+      console.log('eat')
+    }
+  }
+  // const p = new Person()
+  // p.say()
+
+  function Person(name, age) {
+    this.name = name;
+    this.age = age
+  }
+  Person.prototype = {
+    constructor: Person,
+    say: function () {
+      console.log('hello')
+    },
+    sayHi: function () {
+      console.log('hello sayHi')
+    }
+  }
+  Person.eat = function () {
+    console.log('eat')
+  }
+</script>
+
+</html>

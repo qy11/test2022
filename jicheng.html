@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // function TelePhone() {}
+
+  // function HandPhone(color) {
+  //   this.color = color
+  // }
+  // HandPhone.prototype = {
+  //   // screen: '16.8'
+  //   // constructor: TelePhone
+  // }
+  // HandPhone.prototype.ma = '64G'
+  // console.log(HandPhone.prototype) //constructor 对象
+  // var p1 = new HandPhone()
+  // console.log(p1.constructor) // --> 指向构造函数本身
+  // console.log(HandPhone.prototype)
+  // console.log(HandPhone.prototype.constructor === p1.constructor)
+  // console.log(HandPhone.prototype.constructor === HandPhone)
+
+  // class Point {
+  //   constructor(name) {
+  //     this.name = name
+  //   }
+  //   say() {
+  //     return 'hello'
+  //   }
+  // }
+  // console.log(typeof Point) //function
+  // console.log(Point.prototype.constructor === Point) // true
+
+  //继承
+  // class Line extends Point {
+  //   constructor(name, age) {
+  //     super(name);
+  //     this.age = age;
+  //     const say = function () {
+  //       return 'hello line ooo'
+  //     }
+  //   }
+  //   // say() {
+  //   //   return 'hello line'
+  //   // }
+  // }
+  // const y = new Line('Tom', 18)
+  // const p = new Point('Jack', 18)
+  // console.log(y, y.name)
+  // console.log(p, p.name)
+  // console.log(y.name, y.age) //Tom 18
+  // console.log(y.say()) //Tom 18
+
+
+  // Teacher.prototype.wife = 'Ms.liu'
+  // const name = 'uuuu'
+
+  // function Teacher(name, age) {
+  //   this.name = name
+  //   this.age = age;
+  //   // this.say = () => {
+  //   //   return name
+  //   // }
+  // }
+  // Teacher.prototype.say = function () {
+  //   return this.age
+  // }
+  // const t = new Teacher('lucy', 9)
+  // console.log(t.say())
+  // console.log(t.__proto__ === Teacher.prototype)
+  // const teacher = new Teacher('z', 34)
+
+  // function Student(name, age, skill, major) {
+  //   this.skill = skill;
+  //   this.major = major;
+  // }
+
+  // function Buffer() {}
+  // Buffer.prototype = Teacher.prototype
+  // const buffer = new Buffer()
+  // Student.prototype = buffer
+  // Student.prototype.age = 22 // Student.prototype改变不会影响Teacher
+  // var student = new Student('Mr.z', 19, 'JS', 'Computer')
+  // console.log(student, teacher, student.age)
+
+  // function Foo() {
+
+  // }
+  // Foo.prototype = {
+  //   name: '12',
+  //   constructor: Foo // 指向本身 ！！！
+  // }
+  // const foo = new Foo()
+  // // console.log(foo) // 
+  // // console.log(foo.__proto__) // 继承 Object foo.__proto__为Object
+  // // console.log(foo.__proto__ === Foo.prototype) // true 继承 Object foo.__proto__为Object
+  // // console.log(foo.__proto__.__proto__ === Object.prototype) // true 原型的原型继承自Object.prototype
+  // // Object.prototype是原型的终点
+  // //es6获取原型 getPrototypeOf
+  // // console.log(Object.getPrototypeOf(foo) === Foo.prototype) // true
+  // console.log(Foo.prototype.constructor === Foo) // true
+  // console.log(foo.constructor === Foo) // true 如果改变了Prototype就为false
+  // console.log(foo.constructor) // true 如果改变了Prototype就为false
+
+  /**
+   * 继承
+   */
+  // console.log([])
+  /**
+   * [] -> Array.prototype -> Object.prototype 原型链
+   */
+
+  // 原型链继承
+  // function Animal() {
+  //   this.name = 'Tom'
+  // }
+  // Animal.prototype.say = function () {
+  //   return 'hello'
+  // }
+
+  // function Dog() {
+
+  // }
+  // Dog.prototype = new Animal()
+  // const dog = new Dog()
+  // console.log(dog.name) // Tom
+  // console.log(dog.say()) //hello
+
+  /**
+   * 1引用值共享
+   */
+  // function Animal() {
+  //   this.name = ['Tom']
+  // }
+  // Animal.prototype.say = function () {
+  //   return 'hello'
+  // }
+
+  // function Dog() {
+
+  // }
+  // Dog.prototype = new Animal()
+  // const dog = new Dog()
+  // const maomao = new Dog()
+  // dog.name.push('a')
+  // // console.log(dog.say()) //hello
+  // console.log(dog.name)
+  // console.log(maomao.name)
+
+  /**
+   * 2构造函数继承，解决应用值共享问题
+   * 没办法拿到原型上的方法prototype
+   */
+  // function Animal() {
+  //   this.name = ['Tom']
+  // }
+  // Animal.prototype.say = function () {
+  //   return 'hello'
+  // }
+
+  // function Dog() {
+  //   Animal.call(this)
+  // }
+  // const dog = new Dog()
+  // const maomao = new Dog()
+  // dog.name.push('a')
+  // console.log(dog.name)
+  // console.log(maomao.name)
+  // console.log(dog.say)
+
+  /**
+   * 3组合继承(伪经典) 调用了两次实例
+   * 解决引用值、原型方法共享问题
+   */
+
+  // function Animal() {
+  //   this.name = ['Tom']
+  // }
+  // Animal.prototype.say = function () {
+  //   return 'hello'
+  // }
+
+  // function Dog() {
+  //   Animal.call(this)
+  // }
+  // Dog.prototype = new Animal()
+  // const dog = new Dog()
+  // const maomao = new Dog()
+  // dog.name.push('a')
+  // console.log(dog.name) // ['Tom', 'a']
+  // console.log(maomao.name) //['Tom']
+  // console.log(dog.say()) // hello
+
+  /***
+   * 4经典继承
+   */
+  // function Animal() {
+  //   this.name = ['Tom']
+  // }
+  // Animal.prototype.say = function () {
+  //   return 'hello'
+  // }
+
+  // function Dog() {
+  //   Animal.call(this)
+  // }
+  // // Dog.prototype = new Animal()
+  // if (!Object.create) {
+  //   Object.create = function (proto) {
+  //     function F() {}
+  //     F.prototype = proto
+  //     return new f()
+  //   }
+  // }
+  // Dog.prototype = Object.create(Animal.prototype) // 指定原型 重写(不能有其他的方法)
+  // const dog = new Dog()
+  // const maomao = new Dog()
+  // dog.name.push('a')
+  // console.log(dog.name) // ['Tom', 'a']
+  // console.log(maomao.name) //['Tom']
+  // console.log(dog.say()) // hello
+
+  /**
+   * 5圣杯模式
+   */
+  // function Animal() {
+  //   this.name = ['Tom']
+  // }
+  // Animal.prototype.say = function () {
+  //   return 'hello'
+  // }
+
+  // function Dog() {
+  //   Animal.call(this)
+  // }
+  // // Dog.prototype = new Animal()
+
+  // function Buffer() {
+
+  // }
+  // Buffer.prototype = Animal.prototype
+  // Dog.prototype = new Buffer()
+  // Buffer.prototype.try = 'ttt'
+  // const dog = new Dog()
+  // const maomao = new Dog()
+  // dog.name.push('a')
+  // console.log(dog.name) // ['Tom', 'a']
+  // console.log(maomao.name) //['Tom']
+  // console.log(dog.say()) // hello
+  // console.log(dog.try) // hello
+
+  /**
+   * 6.class 语法糖
+   */
+  // class Animal {
+
+  // }
+
+  // class Dog extends Animal {
+
+  // }
+
+  /*****/
+  // function Foo() {}
+  // console.log(Foo.__proto__ === Function.prototype) // true
+  // console.log(Object.__proto__ === Function.prototype) // true
+  // console.log(Function.__proto__ === Function.prototype) // true
+
+  /**
+   * 预编译
+   *  -1.AO GO
+   *  -2.var 
+   *  -3.形参实参赋值
+   *  -4.function
+   *  -5.执行
+   */
+  function Foo() {
+    getName = function () {
+      console.log(1)
+    }
+    return this
+  }
+  Foo.getName = function () {
+    console.log(2)
+  }
+  Foo.prototype.getName = function () {
+    console.log(3)
+  }
+  var getName = function () {
+    console.log(4)
+  }
+
+  function getName() {
+    console.log(5)
+  }
+  // console.log(Foo()) //window
+  // Foo.getName() //2
+  // getName() //1
+  // Foo().getName() //1
+  // getName() //1
+  // new Foo.getName() //2
+  // new Foo().getName() //3
+  // new new Foo().getName() //3
+
+  /*****/
+  // Foo.getName() //2
+  // getName() //4
+  // Foo().getName() //1
+  // getName() //1
+  // new Foo.getName() //2
+  // new Foo().getName() //3
+  // new new Foo().getName() //3
+
+  /**
+   * class static
+   * 1.凡是被static修饰的属性和方法都是静态方法和属性,只能被类名调用,不能被实例化对象调用.同时也不能被子类继承,换句话说它属于当前这个类的.
+   * 2.可被继承
+   * 3.this指的是类，而不是实例。
+   */
+  // class Boy {
+  //   static desc() {
+  //     console.log(this); //this指的是类，而不是实例。
+  //     console.log('hello good')
+  //   }
+  // }
+  // Boy.desc() //hello good
+  // const b = new Boy()
+  // // b.desc() //TypeError b.desc is not a function
+  // class C extends Boy {
+
+  // }
+  // C.desc() //hello good
+
+  //静态方法和普通方法是可以重名的,因为他们不属于同一个对象,像这样!
+  class A {
+    // 静态属性
+    static info = '见过你的美,还能爱上谁?';
+    // 静态方法
+    static love() {
+      console.log('为情所困');
+    }
+    // 普通方法,love
+    love() {
+      console.log('我是普通方法....');
+    }
+    // 普通方法,调用静态属性
+    say() {
+      console.log('小姐姐,' + A.info);
+
+    }
+  }
+  // 静态的love方法
+  A.love(); //为情所困
+  // 实例化类
+  let a1 = new A;
+  // 普通的love方法
+  a1.love(); //我是普通方法....
+</script>
+
+</html>
