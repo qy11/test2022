@@ -4,7 +4,6 @@
  * 
  * contextType
  *  -class的静态属性
- *  -
  */
 class App extends React.Component {
 

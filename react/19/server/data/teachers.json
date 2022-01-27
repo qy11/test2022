@@ -1,0 +1,19 @@
+[{
+    "id": 1,
+    "name": "小红",
+    "subject": "React",
+    "like": 0
+  },
+  {
+    "id": 2,
+    "name": "小红2",
+    "subject": "Vue",
+    "like": 0
+  },
+  {
+    "id": 3,
+    "name": "小红3",
+    "subject": "Node",
+    "like": 0
+  }
+]
