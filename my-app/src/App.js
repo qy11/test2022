@@ -1,5 +1,5 @@
 import React from 'react';
-import Hook from './page/hooks/6';
+import Hook from './page/hooks/useReducer';
 
 const App = () => {
   return <div>
