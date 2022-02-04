@@ -1,5 +1,5 @@
 import React from 'react';
-import Hook from './page/hooks/useReducer';
+import Hook from './page/hooks/useLayoutEffect';
 
 const App = () => {
   return <div>
