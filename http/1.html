@@ -11,6 +11,20 @@
 <body>
 
 </body>
-<script src="./generator.js"></script>
+<!-- <script src="./1.ts"></script> -->
+<script>
+  var obj = {
+    test: function () {
+      return () => {
+        console.log(this)
+      }
+    }
+  }
+
+  obj.test()()  // obj{}
+
+  var o = obj.test
+  o()() // window
+</script>
 
 </html>

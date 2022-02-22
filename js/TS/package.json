@@ -2,9 +2,10 @@
   "name": "TS",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,8 @@
     "@types/baidumap-web-sdk": "0.0.6",
     "@types/faker": "^6.6.9",
     "axios": "^0.25.0",
-    "faker": "^5.5.3"
+    "faker": "^5.5.3",
+    "vite": "^2.8.1"
   },
   "devDependencies": {
     "typescript": "^4.5.5"

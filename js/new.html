@@ -11,5 +11,90 @@
 <body>
 
 </body>
+<script>
+  // var iframe = document.createElement('iframe')
+  // iframe.src = 'http://test.jsplusplus.com/index.html'
+  // iframe.id = 'myIframe'
+  // iframe.style.display = 'none'
+  // iframe.onload = function () {
+  //   var $$ = document.getElementById('myIframe').contentWindow.$;
+  //   $$.post('http://test.jsplusplus.com/get_course1.php', {
+  //     status: 1,
+  //   }, (data) => {
+  //     console.log(data)
+  //   })
+  // }
+  // document.body.appendChild(iframe)
+
+  var ajaxDomain = (function () {
+    function createIframe(frameId, frameUrl) {
+      var iframe = document.createElement('iframe')
+      iframe.src = frameUrl
+      iframe.id = frameId
+      iframe.style.display = 'none'
+      return iframe
+    }
+
+    return function (opt) {
+      document.domain = opt.basicDomain
+      var frame = createIframe(opt.frameId, opt.frameUrl)
+      frame.onload = function () {
+        var $$ = document.getElementById(opt.frameId).contentWindow.$;
+        $$.ajax({
+          url: opt.url,
+          type: opt.type,
+          data: opt.data,
+          success: opt.success,
+          error: opt.error
+        })
+      }
+      document.body.appendChild(frame)
+    }
+  })();
+
+  ajaxDomain({
+    basicDomain: 'jsplusplus.com',
+    frameUrl: 'http://test.jsplusplus.com/index.html',
+    url: "php",
+    type: 'POST',
+    data: {
+      status: 1,
+    },
+    success: function (res) {
+      console.log(res)
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+
+
+
+  var ajaxDomain = (function () {
+    console.log(1)
+    function createIframe(frameId, frameUrl) {
+      var iframe = document.createElement('iframe')
+      iframe.src = frameUrl
+      iframe.id = frameId
+      iframe.style.display = 'none'
+      return iframe
+    }
+
+    return function (opt) {
+      console.log(2)
+      document.domain = opt.basicDomain
+      var frame = createIframe(opt.frameId, opt.frameUrl)
+      frame.onload = function () {
+        var $$ = document.getElementById(opt.frameId).contentWindow.$;
+
+      }
+      document.body.appendChild(frame)
+    }
+  })();
+  ajaxDomain({
+    frameId: 'id',
+    frameUrl: 'http://'
+  })
+</script>
 
 </html>

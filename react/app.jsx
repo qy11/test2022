@@ -1,5 +1,5 @@
 
-import Main from './21/index3';
+import Main from './22';
 
 const App = (props) => {
   return <Main />;
