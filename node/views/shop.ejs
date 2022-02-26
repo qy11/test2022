@@ -1,0 +1,45 @@
+<%- include('includes/head.ejs') %>
+  </head>
+  <link rel="stylesheet" href="/css/index.css">
+
+  <body>
+    <%- include('includes/navigation.ejs') %>
+    <header class="shop-header">
+      <nav class="shop-nav">
+        <ul class="shop-list">
+          <li class="shop-list-item"><a href="/">商店</a></li>
+          <li class="shop-list-item"><a href="/admin/add-product">产品</a></li>
+        </ul>
+      </nav>
+    </header>
+    <% if (prods.length> 0) { %>
+      <div class="grid">
+        <% for (let product of prods) { %>
+          <article class="card product-item">
+            <header class="card-header">
+              <h1 class="product-title">
+                <%= product.title %>
+              </h1>
+            </header>
+            <div class="card-image">
+              <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+            </div>
+            <div class="card-content">
+              <h2 class="product-price">￥<%= product.price %>
+              </h2>
+              <p class="product-description">
+                <%= product.description %>
+              </p>
+            </div>
+            <div class="card-actions">
+              <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+            </div>
+          </article>
+          <% } %>
+      </div>
+      <% } else { %>
+
+        <h1>没有更多产品</h1>
+
+        <% } %>
+<%- include('includes/end.ejs') %>

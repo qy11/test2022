@@ -9,9 +9,10 @@ const rootDir = require('../utils/path')
 const adminData = require('./admin')
 
 router.get('/', (req, res, next) => {
-  // console.log("shop", adminData.products)
   // res.sendFile(path.join(rootDir, 'views', 'shop.html'))
-  res.render('shop', { prods: adminData.products, pageTitle: "我的商店" })
+  res.render('shop',
+    { prods: adminData.products, pageTitle: "我的商店", path: "/" }
+  )
 })
 
 module.exports = router;

@@ -7,9 +7,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+  .box {
+    display: flex;
+    min-height: 500px;
+  }
+
+  .left {
+    flex: 0.4;
+    background-color: orange;
+  }
+
+  .right {
+    flex: 0.6;
+    background-color: blue;
+  }
+</style>
 
 <body>
-
+  <div class="box">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
 </body>
 <script>
   /**
@@ -26,7 +45,7 @@
   const b = "Baidu"
   const c = cookieArr.reduce((prev, item) => {
     const s = item.split("=");
-    if(s[0] === b){
+    if (s[0] === b) {
       console.log(s[1])
       prev[s[0]] = s[1]
     }
